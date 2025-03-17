@@ -13,6 +13,7 @@ function Form({
   handleSubmit,
   images,
   setImages,
+  handleImageChange,
   error,
 }) {
   const [dragActive, setDragActive] = useState(false);
@@ -28,7 +29,7 @@ function Form({
 
   return (
     <>
-      <div className="relative  bg-[url('./assets/images/background-desktop.png')] bg-cover bg-center bg-no-repeat">
+      <div className=" h-[100%] relative  bg-[url('./assets/images/background-desktop.png')] bg-cover bg-center bg-no-repeat">
         <img src={broken} alt="broken pattern" />
         <img src={upspiral} alt="" className="absolute top-0 right-0" />
         <img src={downspiral} alt="" className="absolute left-0 bottom-0" />
@@ -73,9 +74,7 @@ function Form({
                     multiple
                     className="hidden"
                     id="fileInput"
-                    onChange={() => {
-                      handleChange;
-                    }}
+                    onChange={handleImageChange}
                   />
                   <label
                     htmlFor="fileInput"
