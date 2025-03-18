@@ -100,7 +100,7 @@ function Form({
           )}
           <form action="" onSubmit={handleSubmit} className="w-2/3">
             <div className="flex flex-col justify-start w-2/3 mx-auto mb-6">
-              <label htmlFor="" className="">
+              <label htmlFor="name" className="">
                 Full Name
               </label>
               <input
@@ -110,9 +110,14 @@ function Form({
                 value={inputs.fullName}
                 onChange={handleChange}
               />
+              {error.fullName && (
+                <p className=" text-sm flex gap-2 items-center text-left">
+                  <img src={iconinfo} alt="" /> <span>{error.fullName}</span>
+                </p>
+              )}
             </div>
             <div className="flex flex-col justify-start w-2/3 mx-auto mb-6">
-              <label htmlFor="" className="">
+              <label htmlFor="email" className="">
                 Email Address
               </label>
               <input
@@ -122,10 +127,9 @@ function Form({
                 value={inputs.email}
                 onChange={handleChange}
               />
-              {error && (
+              {error.email && (
                 <p className=" text-sm flex gap-2 items-center text-left">
-                  <img src={iconinfo} alt="" />{" "}
-                  <span>please enter a valid email address</span>
+                  <img src={iconinfo} alt="" /> <span>{error.email}</span>
                 </p>
               )}
             </div>

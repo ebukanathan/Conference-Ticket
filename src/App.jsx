@@ -12,7 +12,7 @@ import Form from "./Form";
 function App() {
   const [images, setimages] = useState();
   const [inputs, setInputs] = useState({});
-  const [error, setError] = useState(false);
+  const [error, setError] = useState({});
   const [random, setRandom] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -46,17 +46,23 @@ function App() {
     console.log("done deal");
   };
 
-  const ValidateInput = (data) => {
+  const ValidateInput = () => {
     const err = {};
-    if (!data.fullname.trim()) {
-      err.fullname = "username is required";
-    } else if (data.fullname.length < 4) {
-      err.fullname = "name must be at least 5 charaters long";
+    if (!inputs.fullName) {
+      err.fullName = "username is required";
+    } else if (inputs.fullName.length < 4) {
+      err.fullName = "name must be at least 5 charaters long";
     }
 
-    if (!data.email.trim()) {
-      err.email = "emailm is required";
+    if (!inputs.email) {
+      err.email = "email is required";
+    } else if (!/\S+@\S+\.\S+/.test(inputs.email)) {
+      err.email = "invalid email";
     }
+
+    setError(err);
+
+    return Object.keys(err).length === 0;
   };
 
   const handleSubmit = (e) => {
@@ -65,9 +71,16 @@ function App() {
       4,
       "0"
     )}`;
-    setRandom(rand);
-    setSubmitted(!submitted);
-    console.log(inputs);
+
+    if (ValidateInput()) {
+      setRandom(rand);
+      setSubmitted(!submitted);
+      alert("Form submitted successfully!");
+      console.log("Submitted Data:", inputs);
+      console.log(error);
+      setInputs({ fullName: "", email: "", password: "" }); // Reset form
+      setError({});
+    }
   };
 
   return (
