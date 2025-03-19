@@ -33,15 +33,15 @@ function Form({
         <img src={broken} alt="broken pattern" />
         <img src={upspiral} alt="" className="absolute top-0 right-0" />
         <img src={downspiral} alt="" className="absolute left-0 bottom-0" />
-        <div className=" absolute inset-x-7 top-0 flex flex-col text-white  gap-5 justify-center items-center w-full mx-auto p-5 ">
+        <div className=" absolute inset-x-7 top-0 flex flex-col text-white  gap-5 justify-center items-center w-2/3 mx-auto p-5">
           <img src={logo} alt="" />
-          <div className="text-6xl text-bold text-center capitalize ">
+          <div className="text-6xl text-bold text-center capitalize w-full  ">
             Your journey to coding conf<br></br> 2025 starts here
           </div>
           <p className="text-sm">
             secure your spot at next year's biggest coding conference
           </p>
-          <div className="flex flex-col justify-center items-center p-6  border-2  border-dashed border-gray-400 w-2/3  max-w-lg mx-auto rounded-  bg-white/10 hover:bg-white/40 ">
+          <div className="flex flex-col justify-center items-center p-6  border-2  border-dashed border-gray-400 w-2/3 mx-auto rounded-lg  bg-white/10 hover:bg-white/40 ">
             {images ? (
               <div className="flex flex-col justify-center gap-2 items-center ">
                 <img src={images} alt="" className="object-cover w-[100px]" />
@@ -57,7 +57,7 @@ function Form({
               </div>
             ) : (
               <div className="w-full">
-                <div className=" m-2 w-1/3 mx-auto bg-slate-500 rounded-md border-2 border-zinc-50 hover:bg-slate-300">
+                <div className=" m-2 w-1/4 mx-auto bg-slate-500 rounded-md border-2 border-zinc-50 hover:bg-slate-300">
                   <img src={iconupload} alt="" className="mx-auto w-1/2" />
                 </div>
                 <div
@@ -88,23 +88,23 @@ function Form({
             )}
           </div>
           {!images && (
-            <p className="w-1/3  text-sm flex gap-2 items-center text-left">
+            <p className="w-2/3  text-sm flex gap-2 items-center text-left">
               <img src={iconinfo} alt="" /> <span>Upload Images</span>
             </p>
           )}
           {error.largeFile && (
-            <p className=" w-1/3 text-sm flex gap-2 items-center text-left">
+            <p className=" w-2/3 text-sm flex gap-2 items-center text-left">
               <img src={iconinfo} alt="" /> <span>{error.largeFile}</span>
             </p>
           )}
           {error.type && (
-            <p className=" w-1/3 text-sm flex gap-2 items-center text-left">
+            <p className=" w-2/3 text-sm flex gap-2 items-center text-left">
               <img src={iconinfo} alt="" /> <span>{error.type}</span>
             </p>
           )}
 
           <form action="" onSubmit={handleSubmit} className="w-2/3">
-            <div className="flex flex-col justify-start w-2/3 mx-auto mb-6">
+            <div className="flex flex-col justify-start w-full mx-auto mb-6">
               <label htmlFor="name" className="">
                 Full Name
               </label>
@@ -121,7 +121,7 @@ function Form({
                 </p>
               )}
             </div>
-            <div className="flex flex-col justify-start w-2/3 mx-auto mb-6">
+            <div className="flex flex-col justify-start w-full mx-auto mb-6">
               <label htmlFor="email" className="">
                 Email Address
               </label>
@@ -138,7 +138,7 @@ function Form({
                 </p>
               )}
             </div>
-            <div className="flex flex-col justify-start w-2/3 mx-auto mb-6">
+            <div className="flex flex-col justify-start w-full mx-auto mb-6">
               <label htmlFor="" className="">
                 GitHub Username
               </label>
@@ -150,7 +150,7 @@ function Form({
                 onChange={handleChange}
               />
             </div>
-            <button className=" flex flex-col justify-start w-2/3 mx-auto rounded-lg bg-orange-700 text-black p-3 hover:text-white hover:bg-orange-800  focus:outline-double ">
+            <button className=" flex flex-col justify-start w-full mx-auto rounded-lg bg-orange-700 text-black p-3 hover:text-white hover:bg-orange-800  focus:outline-double ">
               Generate My Tickect
             </button>
           </form>
