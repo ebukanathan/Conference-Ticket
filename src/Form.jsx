@@ -41,7 +41,7 @@ function Form({
           <p className="text-sm">
             secure your spot at next year's biggest coding conference
           </p>
-          <div className="flex flex-col justify-center items-center p-6 border-2  border-dashed border-gray-400 w-2/3  max-w-lg mx-auto ">
+          <div className="flex flex-col justify-center items-center p-6  border-2  border-dashed border-gray-400 w-2/3  max-w-lg mx-auto rounded-  bg-white/10 ">
             {images ? (
               <div className="flex flex-col justify-center gap-2 items-center ">
                 <img src={images} alt="" className="object-cover w-[100px]" />
@@ -56,14 +56,12 @@ function Form({
                 </div>
               </div>
             ) : (
-              <div className="">
+              <div className="w-full">
                 <div className=" m-2 w-1/3 mx-auto bg-slate-500 rounded-md border-2 border-zinc-50 hover:bg-slate-300">
                   <img src={iconupload} alt="" className="mx-auto w-1/2" />
                 </div>
                 <div
-                  className={`w-full p-6 text-center transition-all duration-300 ${
-                    dragActive ? "bg-gray-200" : "bg-white"
-                  }`}
+                  className="w-full p-6 text-center transition-all duration-300"
                   onDragOver={handleDragOver}
                   onDragLeave={handleDragLeave}
                   onDrop={handleFiles}
@@ -78,26 +76,33 @@ function Form({
                   />
                   <label
                     htmlFor="fileInput"
-                    className="cursor-pointer text-gray-600 hover:text-gray-800"
+                    className="cursor-pointer text-white hover:text-white/70"
                   >
                     Drag & Drop images here or
-                    <span className="text-blue-500 underline">
+                    <span className="text-blue-500 underline ml-2 hover:text-blue-300">
                       click to upload
                     </span>
                   </label>
-                  <p className="text-sm text-gray-500 mt-2">
-                    Max file size: 500KB
-                  </p>
                 </div>
               </div>
             )}
           </div>
-          {error && (
+          {!images && (
             <p className=" text-sm flex gap-2 items-center text-left">
-              <img src={iconinfo} alt="" />{" "}
-              <span>please enter a valid email address</span>
+              <img src={iconinfo} alt="" /> <span>Upload Images</span>
             </p>
           )}
+          {error.largeFile && (
+            <p className=" text-sm flex gap-2 items-center text-left">
+              <img src={iconinfo} alt="" /> <span>{error.largeFile}</span>
+            </p>
+          )}
+          {error.type && (
+            <p className=" text-sm flex gap-2 items-center text-left">
+              <img src={iconinfo} alt="" /> <span>{error.type}</span>
+            </p>
+          )}
+
           <form action="" onSubmit={handleSubmit} className="w-2/3">
             <div className="flex flex-col justify-start w-2/3 mx-auto mb-6">
               <label htmlFor="name" className="">
@@ -105,7 +110,7 @@ function Form({
               </label>
               <input
                 type="text"
-                className="h-10 opacity-20 rounded-lg p-3 text-orange-700"
+                className="h-10 bg-white/10 rounded-lg p-4  text-white"
                 name="fullName"
                 value={inputs.fullName}
                 onChange={handleChange}
@@ -122,7 +127,7 @@ function Form({
               </label>
               <input
                 type="text"
-                className="h-10 opacity-20 rounded-lg p-3  text-orange-700"
+                className="h-10 bg-white/10 rounded-lg p-4  text-white focus:outline-none"
                 name="email"
                 value={inputs.email}
                 onChange={handleChange}
@@ -139,13 +144,13 @@ function Form({
               </label>
               <input
                 type="text"
-                className="h-10 opacity-20 rounded-lg  text-orange-700"
+                className="h-10 bg-white/10 rounded-lg p-4  text-white focus:ring-2"
                 name="github"
                 value={inputs.github}
                 onChange={handleChange}
               />
             </div>
-            <button className=" flex flex-col justify-start w-2/3 mx-auto rounded-lg bg-orange-700 text-black p-3">
+            <button className=" flex flex-col justify-start w-2/3 mx-auto rounded-lg bg-orange-700 text-black p-3 hover:text-white hover:bg-orange-800">
               Generate My Tickect
             </button>
           </form>

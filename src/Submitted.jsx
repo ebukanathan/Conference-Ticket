@@ -7,32 +7,42 @@ import logo from "./assets/images/logo-full.svg";
 function Submitted({ images, inputs, random }) {
   return (
     <>
-      <div className=" h-[100%] relative  bg-[url('./assets/images/background-desktop.png')] bg-cover bg-center bg-no-repeat">
+      <div className="  bg-[url('./assets/images/background-desktop.png')] bg-cover bg-center bg-no-repeat">
         <img src={broken} alt="broken pattern" />
         <img src={upspiral} alt="" className="absolute top-0 right-0" />
         <img src={downspiral} alt="" className="absolute left-0 bottom-0" />
         <div className=" absolute inset-x-7 top-0 flex flex-col text-white  gap-5 justify-center items-center w-full mx-auto p-5 ">
           <img src={logo} alt="" />
-          <div className="text-6xl text-bold text-center capitalize ">
-            congrats {inputs.fullName} your ticket is ready
+          <div className="text-6xl text-bold text-center capitalize w-2/3 ">
+            congrats {inputs.fullName}
+            <span className="lowercase"> your ticket is ready</span>
           </div>
-          <p className="text-sm">we ve emailed your ticket to {inputs.email}</p>
-          <div className="bg-[url('./assets/images/pattern-ticket.svg')] bg-no-repeat p-8 w-1/2 h-[50vh]  text-white">
-            <div className="flex justify-between items-center">
+          <p className="text-sm">
+            we ve emailed your ticket to{" "}
+            <span className="text-red-300 hover:text-white cursor-pointer">
+              {inputs.email}
+            </span>
+          </p>
+          <div className=" relative bg-[url('./assets/images/pattern-ticket.svg')] bg-no-repeat p-8 w-1/2 h-[50vh]  text-white">
+            <div className="relative flex ">
               <div className="flex flex-col gap-20 items-center justify-evenly">
                 <div className="">
                   <img src={logo} alt="" />
-                  <p className="pl-12">date</p>
+                  <p className="pl-12">March | Tx Houston</p>
                 </div>
-                <div className="flex gap-3">
-                  <img src={images} alt="" className="object-cover w-[40px]" />
+                <div className="flex gap-3 ml-1">
+                  <div className="w-[65px]">
+                    <img src={images} alt="" className="object-cover  w-full" />
+                  </div>
                   <div className="flex flex-col">
                     <div className="">{inputs.fullName}</div>
                     <p>{inputs.github}</p>
                   </div>
                 </div>
               </div>
-              <div className="rotate-90 mt-8">{random}</div>
+              <div className="absolute right-14 top-12 rotate-90 mt-8  text-3xl font-semibold">
+                {random}
+              </div>
             </div>
           </div>
         </div>

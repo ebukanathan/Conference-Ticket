@@ -18,26 +18,31 @@ function App() {
 
   const MAX_FILE_SIZE = 500 * 1024;
 
-  // function validateEmail(email) {
-  //   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  //   return emailRegex.test(email);
-  // }
-
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    // if (validateEmail(name)) {
-    //   setInputs({ ...inputs, [name]: value });
-    // } else {
-    //   setError(true);
-    // }
     setInputs({ ...inputs, [name]: value });
   };
 
   const handleImageChange = (e) => {
+    let imageError = {};
     e.preventDefault();
-    setimages(URL.createObjectURL(e.target.files[0]));
-    console.log("image chan");
+    console.log(e.target.files[0].size);
+    if (MAX_FILE_SIZE < e.target.files[0].size) {
+      imageError.largeFile = "the file is too large";
+    }
+
+    if (e.target.files[0].type !== "image/jpeg") {
+      imageError.type = "only jpeg is accepted";
+      console.log(imageError);
+    }
+
+    setError(imageError);
+    console.log(Error);
+    console.log(Object.keys(imageError).length);
+    if (Object.keys(imageError).length === 0) {
+      setimages(URL.createObjectURL(e.target.files[0]));
+    }
   };
 
   const handleFiles = (e) => {
@@ -59,9 +64,8 @@ function App() {
     } else if (!/\S+@\S+\.\S+/.test(inputs.email)) {
       err.email = "invalid email";
     }
-
     setError(err);
-
+    console.log(Error);
     return Object.keys(err).length === 0;
   };
 
@@ -78,7 +82,7 @@ function App() {
       alert("Form submitted successfully!");
       console.log("Submitted Data:", inputs);
       console.log(error);
-      setInputs({ fullName: "", email: "", password: "" }); // Reset form
+      // setInputs({ fullName: "", email: "", password: "" }); // Reset form
       setError({});
     }
   };
