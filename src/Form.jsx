@@ -29,13 +29,17 @@ function Form({
 
   return (
     <>
-      <div className=" h-[100%] relative  bg-[url('./assets/images/background-desktop.png')] bg-cover bg-center bg-no-repeat">
-        <img src={broken} alt="broken pattern" />
+      <div className="h-screen max-w-screen  bg-[url('./assets/images/background-mobile.png')] relative   bg-cover bg-center bg-no-repeat md:bg-[url('./assets/images/background-desktop.png')] ">
+        <img src={broken} alt="broken pattern" className="bg-cover bg-center" />
         <img src={upspiral} alt="" className="absolute top-0 right-0" />
-        <img src={downspiral} alt="" className="absolute left-0 bottom-0" />
-        <div className=" absolute inset-x-7 top-0 flex flex-col text-white  gap-5 justify-center items-center w-2/3 mx-auto p-5">
+        <img
+          src={downspiral}
+          alt=""
+          className="absolute left-0 bottom-0 w-2/3"
+        />
+        <div className="flex flex-col text-white  gap-5 justify-center items-center w-[90%]   mx-auto  md:w-2/3  p-5 absolute inset-x-7 top-0">
           <img src={logo} alt="" />
-          <div className="text-6xl text-bold text-center capitalize w-full  ">
+          <div className="text-3xl text-bold text-center capitalize w-full md:text-6xl  ">
             Your journey to coding conf<br></br> 2025 starts here
           </div>
           <p className="text-sm">
@@ -57,7 +61,7 @@ function Form({
               </div>
             ) : (
               <div className="w-full">
-                <div className=" m-2 w-1/4 mx-auto bg-slate-500 rounded-md border-2 border-zinc-50 hover:bg-slate-300">
+                <div className=" m-2 w-1/3 mx-auto bg-slate-500 rounded-md border-2 border-zinc-50 hover:bg-slate-300">
                   <img src={iconupload} alt="" className="mx-auto w-1/2" />
                 </div>
                 <div
