@@ -24,15 +24,15 @@ function Submitted({ images, inputs, random }) {
               {inputs.email}
             </span>
           </p>
-          <div className=" relative mx-auto bg-cover bg-no-repeat p-8 w-1/2 text-white min-w-1/2 md:w-1/2 ">
+          <div className=" relative mx-auto bg-cover bg-no-repeat p-2 w-1/2 text-white min-w-1/2 md:w-1/2  ">
             <div className="absolute top-0 left-0 w-[100%]">
               <img src={bg} alt="" className=" w-[100%] h-[100%]" />
             </div>
             <div className=" flex ">
-              <div className="flex flex-col gap-20 items-center justify-evenly">
-                <div className="">
-                  <img src={logo} alt="" />
-                  <p className="pl-12">March | Tx Houston</p>
+              <div className="flex flex-col gap-5 items-center justify-evenly md:gap-20">
+                <div className="w-[200px] bg-red-500">
+                  <img src={logo} alt="" className="w-[200px]" />
+                  <p className=" pl-3 block md:pl-12 ">March | Tx Houston</p>
                 </div>
                 <div className="flex gap-3 ml-1">
                   <div className="w-[40px]">
