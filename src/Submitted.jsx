@@ -3,11 +3,12 @@ import broken from "./assets/images/pattern-lines.svg";
 import downspiral from "./assets/images/pattern-squiggly-line-bottom-desktop.svg";
 import upspiral from "./assets/images/pattern-squiggly-line-top.svg";
 import logo from "./assets/images/logo-full.svg";
+import bg from "./assets/images/pattern-ticket.svg";
 
 function Submitted({ images, inputs, random }) {
   return (
     <>
-      <div className="  bg-[url('./assets/images/background-desktop.png')] bg-cover bg-center bg-no-repeat">
+      <div className=" h-[918px] bg-[url('./assets/images/background-desktop.png')] bg-cover bg-center bg-no-repeat md:h-auto">
         <img src={broken} alt="broken pattern" />
         <img src={upspiral} alt="" className="absolute top-0 right-0" />
         <img src={downspiral} alt="" className="absolute left-0 bottom-0" />
@@ -23,15 +24,18 @@ function Submitted({ images, inputs, random }) {
               {inputs.email}
             </span>
           </p>
-          <div className=" relative bg-[url('./assets/images/pattern-ticket.svg')] bg-no-repeat p-8 w-1/2 h-[50vh]  text-white">
-            <div className="relative flex ">
+          <div className=" relative mx-auto bg-cover bg-no-repeat p-8 w-1/2 text-white min-w-1/2 md:w-1/2 ">
+            <div className="absolute top-0 left-0 w-[100%]">
+              <img src={bg} alt="" className=" w-[100%] h-[100%]" />
+            </div>
+            <div className=" flex ">
               <div className="flex flex-col gap-20 items-center justify-evenly">
                 <div className="">
                   <img src={logo} alt="" />
                   <p className="pl-12">March | Tx Houston</p>
                 </div>
                 <div className="flex gap-3 ml-1">
-                  <div className="w-[65px]">
+                  <div className="w-[40px]">
                     <img src={images} alt="" className="object-cover  w-full" />
                   </div>
                   <div className="flex flex-col">
@@ -46,6 +50,10 @@ function Submitted({ images, inputs, random }) {
             </div>
           </div>
         </div>
+      </div>
+      <div className="relative bg-red-800 w-[300px] mx-auto">
+        <div className="text-6xl  ">happy</div>
+        <img src={bg} alt="" className="absolute top-0" />
       </div>
     </>
   );
